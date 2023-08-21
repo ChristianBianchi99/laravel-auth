@@ -45,6 +45,13 @@
                     @endforeach
                 </table>
             </div>
+            <div class="col-12">
+                <div class="btns justify-content-end my-3">
+                    <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">
+                        Aggiungi un elemento alla lista
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
