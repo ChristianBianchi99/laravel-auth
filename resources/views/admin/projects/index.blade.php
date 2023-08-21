@@ -30,15 +30,15 @@
                             {{-- BTN CRUD --}}
                             <td>
                                 <div class="btns">
-                                    <button class="btn btn-secondary">
+                                    <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-secondary">
                                         <i class="fa-solid fa-eye"></i>
-                                    </button>
-                                    <button class="btn btn-info">
+                                    </a>
+                                    <a href="#" class="btn btn-info">
                                         <i class="fa-solid fa-pen"></i>
-                                    </button>
-                                    <button class="btn btn-danger">
+                                    </a>
+                                    <a href="#" class="btn btn-danger">
                                         <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </td>
                         </tr>
