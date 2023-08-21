@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\ProjectController as ProjectController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
