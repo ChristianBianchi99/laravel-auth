@@ -1,7 +1,45 @@
 @extends('layouts.admin');
 
 @section('content')
-    <h2>
-        Questa è la edit
-    </h2>
+<div class="container">
+    <div class="row my-5">
+        <div class="col-12">
+            <h2 class="my-3">
+                Update Project
+            </h2>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>
+                                {{ $error }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="{{ route('admin.projects.update', $project)}}" method="POST" class="my-3">
+                @csrf
+                @method('PUT')
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="name">Name</span>
+                    <input name="name" id="name" type="text" class="form-control" placeholder="Project name" aria-label="Username" aria-describedby="basic-addon1"
+                    value="{{old('name') ?? $project->name}}">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Description</span>
+                    <textarea name="description" id="description" class="form-control" aria-label="With textarea">{{old('description') ?? $project->description }}</textarea>
+                </div>
+                <div class="btns justify-content-end my-3">
+                    <button type="submit" class="btn btn-primary mx-3">
+                        Aggiorna
+                    </button>
+                    <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
+                        Torna alla lista
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

@@ -22,18 +22,19 @@
                     @csrf
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="name">Name</span>
-                        <input name="name" id="name" type="text" class="form-control" placeholder="Project name" aria-label="Username" aria-describedby="basic-addon1">
+                        <input name="name" id="name" type="text" class="form-control" placeholder="Project name" aria-label="Username" aria-describedby="basic-addon1"
+                        value="{{old('name')}}">
                     </div>
                     <div class="input-group">
                         <span class="input-group-text">Description</span>
-                        <textarea name="description" id="description" class="form-control" aria-label="With textarea"></textarea>
+                        <textarea name="description" id="description" class="form-control" aria-label="With textarea">{{old('description') ?? $project->description}}</textarea>
                     </div>
                     <div class="btns justify-content-end my-3">
                         <button type="submit" class="btn btn-primary mx-3">
                             Aggiungi
                         </button>
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">
-                        Torna alla lista
+                            Torna alla lista
                         </a>
                     </div>
                 </form>
