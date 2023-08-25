@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row my-5">
-            <div class="col-12">
+            <div class="col-12 my-3">
                 <h2>
                     {{ $project->name }}
                 </h2>
@@ -11,7 +11,9 @@
                     {{ $project->description }}
                 </p>
                 @if (isset($project->cover_image))
-                    <img src="{{ asset('storage/'.$project->cover_image) }}" alt="Cover {{ $project->name }}">
+                    <div class="cover">                        
+                        <img src="{{ asset('storage/'.$project->cover_image) }}" alt="Cover {{ $project->name }}">
+                    </div>
                 @endif
             </div>
             <div class="col-12">
