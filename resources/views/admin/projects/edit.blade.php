@@ -18,7 +18,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('admin.projects.update', $project)}}" method="POST" class="my-3">
+            <form action="{{ route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data" class="my-3">
                 @csrf
                 @method('PUT')
                 <div class="input-group mb-3">
@@ -29,6 +29,10 @@
                 <div class="input-group">
                     <span class="input-group-text">Description</span>
                     <textarea name="description" id="description" class="form-control" aria-label="With textarea">{{old('description') ?? $project->description }}</textarea>
+                </div>
+                <div class="input-group my-3">
+                    <span class="input-group-text">Cover image</span>
+                    <input name="cover_image" id="cover_image" type="file" class="form-control" id="inputGroupFile02">
                 </div>
                 <div class="btns justify-content-end my-3">
                     <button type="submit" class="btn btn-primary mx-3">

@@ -44,6 +44,8 @@ class ProjectController extends Controller
 
         if($request->hasFile('cover_image')){
             $image_path = Storage::put('cover_image', $form_data['cover_image']);
+
+            $form_data['cover_image'] = $image_path;
         }
 
         $project->fill($form_data);
@@ -85,6 +87,12 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
+
+        if ($request->hasFile('cover_image')){
+            $image_path = Storage::put('cover_image', $form_data['cover_image']);;
+
+            $form_data['cover_image'] = $image_path;
+        }
 
         $project->update($form_data);
 
