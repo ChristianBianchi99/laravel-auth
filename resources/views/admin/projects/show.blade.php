@@ -10,6 +10,9 @@
                 <p>
                     {{ $project->description }}
                 </p>
+                @if (isset($project->cover_image))
+                    <img src="{{ asset('storage/'.$project->cover_image) }}" alt="Cover {{ $project->name }}">
+                @endif
             </div>
             <div class="col-12">
                 <div class="btns justify-content-end">
